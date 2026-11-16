@@ -1,3 +1,16 @@
 from django.db import models
 
-# Create your models here.
+class Thread(models.Model):
+    header = models.CharField(max_length=500)
+    content = models.TextField()
+    pub_date = models.DateTimeField('date sent')
+
+    def __str__(self):
+        return self.header
+
+class Message(models.Model):
+    thread =  models.ForeignKey(Thread, on_delete=models.CASCADE)
+    message = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.message
