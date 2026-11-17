@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to chat</title>
+    </head>
+    <body>
+
+        <h1>All threads</h1>
+        
+        {% if threads %}
+            <ul>
+            {% for thread in threads %}
+                <li><a href="/chat/{{ thread.id }}/">{{ thread.header }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No threads currently available.</p>
+        {% endif %}
+
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Thread</title>
+    </head>
+    <body>
+       
+        <h1>{{ thread.header }}</h1>
+        <h2>{{ thread.content }}</h2>
+
+       {% if thread.message_set.all %}
+        <ul>
+        {% for message in thread.message_set.all %}
+           <li>{{ message.message }}</li>
+        {% endfor %}
+        {% else %}
+            <p>No comments to this thread yet.</p>
+        {% endif %}
+        </ul>
+  
+    </body>
+</html>
