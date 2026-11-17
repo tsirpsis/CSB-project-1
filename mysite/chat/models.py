@@ -10,7 +10,7 @@ class Thread(models.Model):
 
 class Message(models.Model):
     thread =  models.ForeignKey(Thread, on_delete=models.CASCADE)
-    message = models.CharField(max_length=500)
+    message = models.TextField()
 
     def __str__(self):
         return self.message
