@@ -6,17 +6,26 @@
     <body>
        
         <h1>{{ thread.header }}</h1>
-        <h2>{{ thread.content }}</h2>
+        <h3>{{ thread.content }}</h3>
 
        {% if thread.message_set.all %}
-        <ul>
+        <hr />
         {% for message in thread.message_set.all %}
-           <li>{{ message.message }}</li>
+           <p>{{ message.message }}</p>
+        <hr />
         {% endfor %}
         {% else %}
             <p>No comments to this thread yet.</p>
         {% endif %}
-        </ul>
-  
+
+        <h2>Add new comment</h2>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p>Message: <br/>
+                <textarea id="content" name="content" rows="4" cols="40"></textarea></p>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+
     </body>
 </html>

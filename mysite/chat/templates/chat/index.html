@@ -5,7 +5,8 @@
     </head>
     <body>
 
-        <h1>All threads</h1>
+        <h1>Welcome to chat</h1>
+        <h2>All threads</h2>
         
         {% if threads %}
             <ul>
@@ -16,6 +17,17 @@
         {% else %}
             <p>No threads currently available.</p>
         {% endif %}
+
+        <h2>Add new thread</h2>
+
+        <form action="/chat/" method="POST">
+            {% csrf_token %}
+            <p>Header: <br/>
+                <input type="text" id="header" name="header"/></p>
+            <p>Message: <br/>
+                <textarea id="content" name="content" rows="4" cols="40"></textarea></p>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
 
     </body>
 </html>
